@@ -3,8 +3,12 @@ using System.Collections;
 
 public class AsteroidManager : MonoBehaviour {
 
+	public float OrbitRadius = 20f;
+
 	public GameObject AsteroidPrefab;
 	private bool Busy;
+
+	private Vector3 asteroidPosition;
 	
 	void Start () {
 	
@@ -12,11 +16,9 @@ public class AsteroidManager : MonoBehaviour {
 
 	void Update () {
 
-		Vector3 asteroidPosition = new Vector3();
-
 		if (!Busy && Input.GetMouseButtonDown(0)) {
 			Vector3 mPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			asteroidPosition = mPos.normalized * 100f;
+			asteroidPosition = mPos.normalized * OrbitRadius;
 		}
 		else if (!Busy && Input.GetMouseButton (0)) {
 			GameObject obj = Instantiate (AsteroidPrefab, asteroidPosition, Quaternion.identity) as GameObject;

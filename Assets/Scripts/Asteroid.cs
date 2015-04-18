@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Asteroid : MonoBehaviour {
 
+	public float OrbitRadius = 20f;
+	public float SpeedMultiplier = 2f;
+	public float GravityMultiplier = 2f;
+
 	private Vector2 directionPlanet;
 	private Vector2 directionSpeed;
 
@@ -23,7 +27,7 @@ public class Asteroid : MonoBehaviour {
 
 			Vector3 mPos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			Vector2 directionMouse = new Vector2(transform.position.x - mPos.x, transform.position.y - mPos.y).normalized;
-			float speedFactor = Vector2.Distance (transform.position, mPos) * 2f;
+			float speedFactor = Vector2.Distance (transform.position, mPos) * SpeedMultiplier;
 
 			if (Input.GetMouseButtonUp (0)) {
 				directionSpeed = directionMouse * speedFactor;
@@ -41,8 +45,13 @@ public class Asteroid : MonoBehaviour {
 	void ApplyGravity () {
 		directionPlanet = -transform.position;
 		directionPlanet.Normalize ();
-		directionPlanet *= (20-Vector2.Distance (new Vector2(), transform.position));
+		directionPlanet *= (OrbitRadius-Vector2.Distance (new Vector2(), transform.position)) * GravityMultiplier;
 
 		rig.AddForce (directionPlanet);
 	}
+
+	void OnCollisionEnter2D (Collision2D col) {
+		GameObject.Destroy (gameObject);
+	}
+
 }
