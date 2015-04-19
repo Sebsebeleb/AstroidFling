@@ -35,6 +35,7 @@ public class AsteroidManager : MonoBehaviour
             if (!Busy && Input.GetMouseButton(0) && !_asteroidPositionSet)
             {
                 asteroidPosition = mPos.normalized * OrbitRadius;
+                asteroidPosition.z = -1f;
                 _asteroidPositionSet = true;
             }
             else if (!Busy && Input.GetMouseButton(0) && _asteroidPositionSet)
