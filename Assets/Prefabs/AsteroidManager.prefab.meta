@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/asteroid.prefab.meta
+guid: 8e9bbed9bcf014d5d989b4f3cd0044b2
+timeCreated: 1429364227
+=======
+guid: 5498386d7b8334e1699bcf7ef2cf4bdb
+timeCreated: 1429399000
+>>>>>>> 64d140ca6601d2e67cdea97469d1b0d1cb3cd73c:Assets/Sprite/AsteroidManager.prefab.meta
+licenseType: Free
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
