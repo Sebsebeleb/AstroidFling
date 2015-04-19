@@ -5,6 +5,8 @@ public class SunControl : MonoBehaviour {
 
 	public float TurnTime = 42f;
 
+	public float OrbitRadius = 7f;
+
 	void Start () {
 	
 	}
@@ -15,6 +17,7 @@ public class SunControl : MonoBehaviour {
 		Vector3 pos = new Vector3();
 		pos.x = Mathf.Sin (f);
 		pos.y = Mathf.Cos (f);
+		pos = pos.normalized * OrbitRadius;
 
 		transform.position = pos;
 		
