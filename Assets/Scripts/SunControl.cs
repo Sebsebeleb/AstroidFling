@@ -3,7 +3,8 @@ using System.Collections;
 
 public class SunControl : MonoBehaviour {
 
-	public float TurnTime = 42f;
+	private float angle = 0f;
+	public float TurnRate = 0.1f;
 
 	public float OrbitRadius = 7f;
 
@@ -13,10 +14,12 @@ public class SunControl : MonoBehaviour {
 
 	void Update () {
 
-		float f = (Time.time / TurnTime) % 2;
+		angle += TurnRate;
+		if (angle > 360) angle -= 360;
 		Vector3 pos = new Vector3();
-		pos.x = Mathf.Sin (f);
-		pos.y = Mathf.Cos (f);
+		float rad = angle * Mathf.Deg2Rad;
+		pos.x = Mathf.Sin(rad);
+		pos.y = Mathf.Cos(rad);
 		pos = pos.normalized * OrbitRadius;
 
 		transform.position = pos;
