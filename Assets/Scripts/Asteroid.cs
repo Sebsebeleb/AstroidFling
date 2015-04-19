@@ -51,6 +51,11 @@ public class Asteroid : MonoBehaviour {
 			}
 		}
 
+        if (Vector3.Distance(new Vector3(), transform.position) > OrbitRadius)
+        {
+            GameObject.Destroy(gameObject);
+        }
+
 	}
 
 	void StartOrbit () {
