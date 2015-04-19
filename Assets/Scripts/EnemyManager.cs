@@ -19,7 +19,19 @@ public class EnemyManager : MonoBehaviour {
 	}
 	
 	void Update () {
+
+		if (spawnTime < Time.time) {
+			spawnPosition = new Vector2(Random.Range (-1f, 1f), Random.Range (-1f, 1f));
+			spawnPosition = spawnPosition.normalized * SpawnRadius;
+			SpawnEnemy(spawnPosition);
+
+			spawnTime = Time.time + SpawnDelay + Random.Range (-SpawnDelayOffset, SpawnDelayOffset);
+		}
 	
+	}
+
+	void SpawnEnemy (Vector3 position) {
+		Instantiate(EnemyPrefab, position, Quaternion.identity);
 	}
 
 }
