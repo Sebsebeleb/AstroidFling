@@ -20,7 +20,9 @@ public class SunControl : MonoBehaviour {
 		float rad = angle * Mathf.Deg2Rad;
 		pos.x = Mathf.Sin(rad);
 		pos.y = Mathf.Cos(rad);
+        
 		pos = pos.normalized * OrbitRadius;
+        pos.z = -1;
 
 		transform.position = pos;
 		
