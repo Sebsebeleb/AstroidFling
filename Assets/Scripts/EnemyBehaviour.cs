@@ -11,7 +11,6 @@ public class EnemyBehaviour : MonoBehaviour
 	void Start () 
     {
 
-        eSpeed = 1f;
         target = GameObject.FindGameObjectWithTag("earth").transform;
 	
 	}
