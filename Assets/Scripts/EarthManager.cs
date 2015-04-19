@@ -6,11 +6,13 @@ public class EarthManager : MonoBehaviour
 
     public int lives;
     public bool noLives { get { return lives <= 0; } set { } }
+    private CameraControl shake;
 
 	void Start () 
     {
 
         lives = 10;
+        shake = Camera.main.gameObject.GetComponent<CameraControl>();
 	
 	}
 	
@@ -30,6 +32,7 @@ public class EarthManager : MonoBehaviour
 
         if (col.gameObject.tag == "enemy1")
         {
+            shake.StartShake(0.7f, 2f);
             lives--;
             Destroy(col.gameObject);
         }
