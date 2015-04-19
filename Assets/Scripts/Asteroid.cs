@@ -69,7 +69,7 @@ public class Asteroid : MonoBehaviour
         ren.sprite = AsteroidSprite;
         transform.localScale = new Vector3(1f, 1f, 1f);
         col.enabled = true;
-        transform.position = new Vector3(transform.position.x, transform.position.y, -1f);
+        transform.position = new Vector3(transform.position.x, transform.position.y, -1.3f);
     }
 
     void ApplyGravity()
