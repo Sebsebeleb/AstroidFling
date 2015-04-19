@@ -5,6 +5,8 @@ public class EnemySunDamager : MonoBehaviour
     private Transform sun;
     private EnemyHealth health;
 
+    public float dmgMultiplier;
+
     private bool isRayBlocked = false;
     private float sunLightRadius = 10;
 
@@ -43,7 +45,7 @@ public class EnemySunDamager : MonoBehaviour
         if (rayHit.collider != null)
         {
             Debug.Log(rayHit.distance);
-            health.TakeDamage(Time.deltaTime);
+            health.TakeDamage(Time.deltaTime * dmgMultiplier);
             isRayBlocked = true;
         }
     }
