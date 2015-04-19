@@ -14,7 +14,8 @@ public class AsteroidManager : MonoBehaviour {
 	
 	}
 
-	void Update () {
+	void Update () 
+    {
 
         Vector3 mPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mPos.z = 0;
@@ -26,15 +27,27 @@ public class AsteroidManager : MonoBehaviour {
             {
 			    asteroidPosition = mPos.normalized * OrbitRadius;
 		    }
-		    else if (!Busy && Input.GetMouseButton (0)) {
+		    else if (!Busy && Input.GetMouseButton (0)) 
+            {
 			    GameObject obj = Instantiate (AsteroidPrefab, asteroidPosition, Quaternion.identity) as GameObject;
 			    obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, 0f);
 			    Busy = true;
 		    }
-		    else if (Input.GetMouseButtonUp(0)) {
-			    Busy = false;
+		    else if (Input.GetMouseButtonUp(0))
+            {
+                Busy = false;
+                /*StartCoroutine(AsteroidDelay());*/
 		    }
         }
 	
 	}
+
+    /*public IEnumerator AsteroidDelay()
+    {
+
+        yield return new WaitForSeconds(0.5f);
+        Busy = false;
+
+    }*/
+
 }

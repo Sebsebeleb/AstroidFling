@@ -19,7 +19,8 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         Health -= damage;
-        if (Health <= 0) {
+        if (Health <= 0) 
+        {
             Die();
         }
     }
