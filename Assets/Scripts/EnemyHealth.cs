@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -18,9 +17,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("hello");
         Health -= damage;
-        if (Health <= 0) 
+        if (Health <= 0)
         {
             Die();
         }
