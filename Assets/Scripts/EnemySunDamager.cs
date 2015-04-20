@@ -8,7 +8,7 @@ public class EnemySunDamager : MonoBehaviour
     public float dmgMultiplier;
 
     private bool isRayBlocked = false;
-    private float sunLightRadius = 10;
+    public float sunLightRadius = 10;
 
     public LayerMask RayCastMask;
 
