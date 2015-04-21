@@ -7,6 +7,7 @@ public class EarthManager : MonoBehaviour
     public int lives;
     public bool noLives { get { return lives <= 0; } set { } }
     private CameraControl shake;
+    public AudioClip explosion;
 
 	void Start () 
     {
@@ -32,6 +33,7 @@ public class EarthManager : MonoBehaviour
 
         if (col.gameObject.tag == "enemy1" || col.gameObject.tag == "asteroid")
         {
+            /*Sound*/
             shake.StartShake(0.7f, 2f);
             lives--;
             Destroy(col.gameObject);
