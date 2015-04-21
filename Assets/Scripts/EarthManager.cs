@@ -30,12 +30,19 @@ public class EarthManager : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D col)
     {
 
-        if (col.gameObject.tag == "enemy1")
+        if (col.gameObject.tag == "enemy1" || col.gameObject.tag == "asteroid")
         {
             shake.StartShake(0.7f, 2f);
             lives--;
             Destroy(col.gameObject);
         }
+
+    }
+
+    public void OnGUI()
+    {
+
+        GUI.Label(new Rect(50, 8, 100, 25), "Lives " + lives);
 
     }
 

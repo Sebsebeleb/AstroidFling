@@ -81,9 +81,9 @@ public class Asteroid : MonoBehaviour
         rig.AddForce(directionPlanet);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    /*void OnCollisionEnter2D(Collision2D col)
     {
         GameObject.Destroy(gameObject);
-    }
+    }*/
 
 }
